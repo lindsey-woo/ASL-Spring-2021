@@ -1,0 +1,9 @@
+python2
+conda==4.8.3
+conda-package-handling==1.6.0
+gmplot==1.4.1
+
+
+python3
+pandas==1.1.5
+rosbag==1.14.3
