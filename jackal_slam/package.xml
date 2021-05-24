@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>jackal_slam</name>
+  <version>0.0.1</version>
+  <description>Launch files and code for launching RTABMap, Cartographer, and Gmapping on jackal</description>
+  <author email="lindseyhwoo@gmail.com">Lindsey Woo</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>jackal_cartographer_navigation</exec_depend>
+  <exec_depend>rtabmap_ros</exec_depend>
+  <exec_depend>laser_scan_matcher</exec_depend>
+  <exec_depend>hector_trajectory_server</exec_depend>
+  <exec_depend>gmapping</exec_depend>
+  <exec_depend>hector_geotiff</exec_depend>
+  <exec_depend>cartographer_ros</exec_depend>
+  <exec_depend>map_server</exec_depend>
+  <exec_depend>move_base</exec_depend>
+  <exec_depend>jackal_navigation</exec_depend>
+  <exec_depend>urdf</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <test_depend>roslaunch</test_depend>
+
+  <export>
+  </export>
+</package>
