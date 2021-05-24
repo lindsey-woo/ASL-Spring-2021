@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <link name="velodyne_mount_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://jackal_vlp16/meshes/VLP-Tower.STL"/>
+      </geometry>
+      <material name="dark_grey" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://jackal_vlp16/meshes/VLP-Tower.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="velodyne_mount_joint" type="fixed">
+    <parent link="mid_mount" />
+    <child link="velodyne_mount_link" />
+    <origin xyz="0 0 -0.020" />
+  </joint>
+  
+  <link name="velodyne">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </link>
+  
+  <joint name="velodyne_sensor_joint" type="fixed">
+    <parent link="velodyne_mount_link" />
+    <child link="velodyne" />
+    <origin xyz="0 0 0.16" />
+  </joint>
+
+
+  <link name="zed_link">
+    <visual>
+      <origin xyz="-0.017 0 0.055" rpy="0 3.14159 -1.5708"/>
+      <geometry>
+        <mesh filename="package://corn05_jackal/meshes/ZED.STL"/>
+      </geometry>
+      <material name="dark_grey" />
+    </visual>
+    <collision>
+      <origin xyz="-0.017 0 0.055" rpy="0 3.14159 -1.5708"/>
+      <geometry>
+        <mesh filename="package://corn05_jackal/meshes/ZED.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="zed_joint" type="fixed">
+    <parent link="swivel_mount_link" />
+    <child link="zed_link" />
+    <origin xyz="0.0 0 0.0225" rpy="0 0 0" />
+  </joint>
+
+ <link name="swivel_mount_link">
+    <visual>
+     <origin xyz="0 0 0" rpy="0 0 0"/>
+     <geometry>
+      <box size="0.028 0.028 0.045"/>
+     </geometry>
+     <material name="dark_grey" />
+    </visual>
+ </link>
+  
+  <joint name="swivel_mount_joint" type="fixed">
+    <parent link="front_mount" />
+    <child link="swivel_mount_link" />
+    <origin xyz="0.08 0 0.0225" rpy="0 0 0" />
+  </joint>
+
+  <link name="zed_camera_center">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </link>
+  
+  <joint name="zed_camera_joint" type="fixed">
+    <parent link="zed_link" />
+    <child link="zed_camera_center" />
+    <origin xyz="0 0 0" />
+  </joint>
+
+
+</robot>
